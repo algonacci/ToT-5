@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "includes/head.html" %}
+  <body>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div x-data="{ open: false }">
+          <button x-on:click="open = !open" x-text="open ? 'Tutup' : 'Buka'" hx-get="/get_htmx" hx-target="#result" hx-swap="outerHTML" hx-trigger="click once"></button>
+          <div x-show="open" id="result"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  {% include "includes/script.html" %}
+</html>

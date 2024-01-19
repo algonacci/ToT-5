@@ -1,0 +1,13 @@
+<div class="container" hx-trigger="load" id="result">
+  <h1>HTMX here</h1>
+  {{ df_html | safe }}
+  <script>
+    $(document).ready(function () {
+      var table = $(".table-htmx");
+      var columns = table.find("tr:first th").length;
+      table.DataTable({
+        scrollX: columns > 5, // for example, only enable scrollX if more than 5 columns
+      });
+    });
+  </script>
+</div>

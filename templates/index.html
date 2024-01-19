@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "includes/head.html" %}
+  <body>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1>Pandas AI</h1>
+        <a href="/simple_htmx">Simple HTMX</a>
+        <br />
+        <a href="/pandas_ai">Pandas AI</a>
+        <br />
+        <button hx-get="/get_df" hx-target="#df">Get Data</button>
+        <div class="container">
+          <div id="df"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  {% include "includes/script.html" %}
+</html>

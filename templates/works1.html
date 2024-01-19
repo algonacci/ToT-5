@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "includes/head.html" %}
+
+  <body>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1>Pandas AI</h1>
+
+        <div x-data="{ open: false }" class="container">
+          <form id="chat-form" hx-post="/pandas_ai" hx-trigger="submit" hx-swap="outerHTML" hx-target="#result">
+            <input type="text" name="chat" id="chat" required />
+            <button type="submit" @click="open = false">Submit</button>
+          </form>
+
+          <div id="result" class="result-table"></div>
+
+          <button hx-get="/get_df" hx-swap="outerHTML" hx-target="#df" hx-trigger="load" x-on:click="open = !open" x-text="open ? 'Close' : 'Get Data'"></button>
+          <div x-show="open">
+            <div id="df" class="df-table"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  {% include "includes/script.html" %}
+</html>

@@ -1,0 +1,11 @@
+<div>
+  {{ table | safe }}
+  <script>
+    $(document).ready(function () {
+      $(".table").DataTable({
+        responsive: true,
+        scrollX: true,
+      });
+    });
+  </script>
+</div>
